@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardContent, Divider, Grid, Typography } from '@material-ui/core';
+import Form from './Form/Form'
 
 import useStyles from './styles';
 
@@ -16,6 +17,7 @@ const Main = () => {
                 </Typography>
                 <Divider />
                 {/* Form */}
+                <Form />
                 <CardContent className={classes.CardContent}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
