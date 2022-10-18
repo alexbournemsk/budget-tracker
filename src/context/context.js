@@ -1,5 +1,4 @@
 import React, { useReducer, createContext } from 'react';
-
 import contextReducer from './contextReducer';
 
 const initialState = [];
@@ -11,20 +10,24 @@ export const Provider = ({ children }) => {
 
     // Action creators
     const deleteTransaction = (id) => {
-        dispatch({ type: 'DELETE_TRANSACTION', payload: id});
+        dispatch({ type: 'DELETE_TRANSACTION', payload: id });
     };
 
     const addTransaction = (transaction) => {
-        dispatch({ type: 'ADD_TRANSACTION', payload: transaction})
+        dispatch({ type: 'ADD_TRANSACTION', payload: transaction })
 
     };
 
+    console.log('from context.js');
+    console.log(transactions);
+
     return (
         <ExpenseTrackerContext.Provider
-            value={{ 
+            value={{
                 deleteTransaction,
-                addTransaction
-                 }}>
+                addTransaction,
+                transactions
+            }}>
             {children}
         </ExpenseTrackerContext.Provider>)
 }

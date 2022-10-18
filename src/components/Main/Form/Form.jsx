@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+// Full circle 1:13:00: 
+//  creating the reducer (contextReducer.js)
+//  creating the dispatch functions (context.js deleteTransaction & addTransactions)
+//  pass it into Context.Provider (ExpenseTrackerContext.Provider value ={{deleteTransaction, addTransactions}} {children})
+//  accept it into component (const {addTransaction} = useContext(ExpenseTrackerContext)
+//  calling them (addTransaction(transaction))
+
+import React, { useState, useContext } from 'react';
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
+import { ExpenseTrackerContext } from '../../../context/context';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
     amount: '',
@@ -12,7 +21,16 @@ const initialState = {
 const Form = () => {
     const classes = useStyles();
     const [formData, setformData] = useState(initialState);
+    const { addTransaction } = useContext(ExpenseTrackerContext);
 
+    const createTransaction = () => {
+        const transaction = { ... formData, amount: Number(formData.amount), id: uuidv4()}
+        addTransaction(transaction);
+        setformData(initialState);
+    }
+
+    // console.log('log');
+    // console.log(formData);
 
     return (
         <Grid container spacing={2}>
@@ -47,8 +65,8 @@ const Form = () => {
             </Grid>
 
             <Grid item xs={6}>
-                <TextField type='date' label='Date' fullWidth />
-                <Button className={classes.button} variant='outlined' color='primary' fullWidth>Create</Button>
+                <TextField type='date' label='Date' fullWidth value={formData.date} onChange={(evt) => setformData({ ...formData, date: evt.target.value })}/>
+                <Button className={classes.button} variant='outlined' color='primary' fullWidth onClick={createTransaction}>Create</Button>
             </Grid>
         </Grid>
     )
