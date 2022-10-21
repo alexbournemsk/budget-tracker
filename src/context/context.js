@@ -18,9 +18,7 @@ export const Provider = ({ children }) => {
 
     };
 
-    console.log('from context.js');
-    console.log(transactions);
-
+   
     return (
         <ExpenseTrackerContext.Provider
             value={{
