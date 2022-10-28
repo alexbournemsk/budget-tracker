@@ -29,9 +29,7 @@ const Form = () => {
         setformData(initialState);
     }
 
-    // console.log('log');
-    // console.log(formData);
-
+ 
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -42,31 +40,31 @@ const Form = () => {
 
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <InputLabel>Type</InputLabel>
+                    <InputLabel>Тип</InputLabel>
                     <Select value={formData.type} onChange={(evt) => setformData({ ...formData, type: evt.target.value })}>
-                        <MenuItem value='Income'>Income</MenuItem>
-                        <MenuItem value='Expense'>Expense</MenuItem>
+                        <MenuItem value='Income'>Приход</MenuItem>
+                        <MenuItem value='Expense'>Расход</MenuItem>
                     </Select>
                 </FormControl>
             </Grid>
 
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <InputLabel>Category</InputLabel>
+                    <InputLabel>Категория</InputLabel>
                     <Select value={formData.category} onChange={(evt) => setformData({ ...formData, category: evt.target.value })}>
-                        <MenuItem value='Business'>Business</MenuItem>
-                        <MenuItem value='Salary'>Salary</MenuItem>
+                        <MenuItem value='Бизнес'>Бизнес</MenuItem>
+                        <MenuItem value='Зарплата'>Зарплата</MenuItem>
                     </Select>
                 </FormControl>
             </Grid>
 
             <Grid item xs={6}>
-                <TextField type='number' label='Amount' fullWidth value={formData.amount} onChange={(evt) => setformData({ ...formData, amount: evt.target.value })} />
+                <TextField type='number' label='Сумма' fullWidth value={formData.amount} onChange={(evt) => setformData({ ...formData, amount: evt.target.value })} />
             </Grid>
 
             <Grid item xs={6}>
                 <TextField type='date' label='Date' fullWidth value={formData.date} onChange={(evt) => setformData({ ...formData, date: evt.target.value })}/>
-                <Button className={classes.button} variant='outlined' color='primary' fullWidth onClick={createTransaction}>Create</Button>
+                <Button className={classes.button} variant='outlined' color='primary' fullWidth onClick={createTransaction}>Добавить</Button>
             </Grid>
         </Grid>
     )

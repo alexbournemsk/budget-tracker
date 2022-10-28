@@ -10,12 +10,12 @@ const Main = () => {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <CardHeader title='Expense Tracker' subheader='Powered by speechly' />
+            <CardHeader title='Контроль бюджета' subheader='Powered by speechly' />
             <CardContent>
-                <Typography align='center' variant='h5'>Total Balance $100</Typography>
+                <Typography align='center' variant='h5'>Баланс $100</Typography>
                 <Typography variant='subtitle2' style={{ lineHeight: '1.5em', marginTop: '20px' }}>
                     {/* InfoCard ... */}
-                    Try saying: Add income for $100 in Category Salary for Monday ...
+                    Попробуйте голосовой ввод (пока на английском): Add income for $100 in Category Salary for Monday ...
                 </Typography>
                 <Divider />
                 {/* Form */}
@@ -23,7 +23,6 @@ const Main = () => {
                 <CardContent className={classes.CardContent}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            {/* List */}
                             <List />
                         </Grid>
                     </Grid>

@@ -11,7 +11,7 @@ const App = () => {
     return (
         <Grid container className={classes.grid} spacing={0} alignItems='center' justifyContent='center' style={{ height: '100vh' }}>
             <Grid item xs={12} sm={4}>
-                <Details title={'Income'}/>
+                <Details title={'Прибыль'} type={'Income'}/>
             </Grid>
 
             <Grid item xs={12} sm={3}>
@@ -19,7 +19,7 @@ const App = () => {
             </Grid>
 
             <Grid item xs={12} sm={4}>
-                <Details title={'Expenses'}/>
+                <Details title={'Расходы'} type={'Expenses'}/>
             </Grid>
         </Grid>
     )
